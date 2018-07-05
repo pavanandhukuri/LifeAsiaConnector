@@ -43,7 +43,7 @@ public class LAServiceDiscovery {
 		 * load all the bo in filesystem file
 		 */
 		logger.info("Generating WSDL File");
-		List<Operations> operations =new ArrayList<Operations>();
+		//List<Operations> operations =new ArrayList<Operations>();
 		Operations op =null;
 		BOConfiguration config = new BOConfiguration();
 		config.setDefaultFolderLocationForWSDLs(PropertyUtils.getValue("com.lifeasia.wsdl.location"));
@@ -51,10 +51,12 @@ public class LAServiceDiscovery {
 		config.setWsdlName(PropertyUtils.getValue("com.lifeasia.wsdl.name"));
 		
 		for(Service service :services){
-			op =config.createNewOperation(service.getName(),service.getRequest().getBoName()+".xsd",service.getResponse().getBoName()+".xsd", true);
-			operations.add(op);
+			//config.createNewOperation(operationName, requestXSD, responseXSD, override);
+			config.createNewOperation(service.getName(),service.getRequest().getBoName()+".xsd",service.getResponse().getBoName()+".xsd", true);
+			//operations.add(op);
+			//config.get
 		}
-		config.setOperations(operations);
+		config.setOperations(config.getOperations());
 		config.setXsds(config.getXsdInformation());
 		
 		MembraneAPI membObj = new MembraneAPI(MembraneAPI.getMembraneAPIBuilder());
