@@ -1,0 +1,182 @@
+<xsd:schema targetNamespace='http://reliance.com/schema' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://reliance.com/schema'>
+  <xsd:element name='tsarEnquiryReqBO'>
+    <xsd:complexType>
+      <xsd:sequence minOccurs='1' maxOccurs='1'>
+        <xsd:element name='REQMSG1'>
+          <xsd:complexType>
+            <xsd:sequence minOccurs='1' maxOccurs='1'>
+              <xsd:element name='copybook'>
+                <xsd:complexType>
+                  <xsd:sequence minOccurs='1' maxOccurs='1'>
+                    <xsd:element name='LEADER-HEADER' minOccurs='0'>
+                      <xsd:complexType>
+                        <xsd:sequence minOccurs='1' maxOccurs='1'>
+                          <xsd:element name='MSGREFNO' type='xsd:string' />
+                          <xsd:element name='USRPRF' type='xsd:string' />
+                          <xsd:element name='WKSID' type='xsd:string' />
+                          <xsd:element name='OBJID' type='xsd:string' />
+                          <xsd:element name='VRBID' type='xsd:string' />
+                          <xsd:element name='TOTMSGLNG' type='xsd:string' />
+                          <xsd:element name='OPMODE' type='xsd:string' />
+                          <xsd:element name='CMTCONTROL' type='xsd:string' />
+                          <xsd:element name='RSPMODE' type='xsd:string' />
+                          <xsd:element name='MSGINTENT' type='xsd:string' />
+                          <xsd:element name='MORE-IND' type='xsd:string' />
+                          <xsd:element name='ERRLVL' type='xsd:string' />
+                          <xsd:element name='IGNORE-DRIVER-HELD' type='xsd:string' />
+                          <xsd:element name='SUPPRESS-RCLRSC' type='xsd:string' />
+                          <xsd:element name='FILLER' type='xsd:string' />
+                        </xsd:sequence>
+                      </xsd:complexType>
+                    </xsd:element>
+                  </xsd:sequence>
+                  <xsd:attribute name='copybook' fixed='LDRHDR.txt' use='required' type='xsd:string' />
+                </xsd:complexType>
+              </xsd:element>
+            </xsd:sequence>
+          </xsd:complexType>
+        </xsd:element>
+        <xsd:element name='REQMSG2'>
+          <xsd:complexType>
+            <xsd:sequence minOccurs='1' maxOccurs='1'>
+              <xsd:element name='copybook'>
+                <xsd:complexType>
+                  <xsd:sequence minOccurs='1' maxOccurs='1'>
+                    <xsd:element name='SESSIONI-REC' minOccurs='0'>
+                      <xsd:complexType>
+                        <xsd:sequence minOccurs='1' maxOccurs='1'>
+                          <xsd:element name='MSGID' type='xsd:string' />
+                          <xsd:element name='MSGLNG' type='xsd:string' />
+                          <xsd:element name='MSGCNT' type='xsd:string' />
+                          <xsd:element name='FILLER' type='xsd:string' />
+                          <xsd:element name='SESSIONI-COMPANY' type='xsd:string' />
+                          <xsd:element name='SESSIONI-BRANCH' type='xsd:string' />
+                          <xsd:element name='SESSIONI-LANGUAGE' type='xsd:string' />
+                          <xsd:element name='SESSIONI-ACCTYR' type='xsd:string' />
+                          <xsd:element name='SESSIONI-ACCTMN' type='xsd:string' />
+                        </xsd:sequence>
+                      </xsd:complexType>
+                    </xsd:element>
+                  </xsd:sequence>
+                  <xsd:attribute name='copybook' fixed='SESSIONI.txt' use='required' type='xsd:string' />
+                </xsd:complexType>
+              </xsd:element>
+            </xsd:sequence>
+          </xsd:complexType>
+        </xsd:element>
+        <xsd:element name='REQMSG3'>
+          <xsd:complexType>
+            <xsd:sequence minOccurs='1' maxOccurs='1'>
+              <xsd:element name='copybook'>
+                <xsd:complexType>
+                  <xsd:sequence minOccurs='1' maxOccurs='1'>
+                    <xsd:element name='AGTCRTI-REC' minOccurs='0'>
+                      <xsd:complexType>
+                        <xsd:sequence minOccurs='1' maxOccurs='1'>
+                          <xsd:element name='MESSAGE-HEADER' minOccurs='0'>
+                            <xsd:complexType>
+                              <xsd:sequence minOccurs='1' maxOccurs='1'>
+                                <xsd:element name='MSGID' type='xsd:string' />
+                                <xsd:element name='MSGLNG' type='xsd:string' />
+                                <xsd:element name='MSGCNT' type='xsd:string' />
+                                <xsd:element name='FILLER' type='xsd:string' />
+                              </xsd:sequence>
+                            </xsd:complexType>
+                          </xsd:element>
+                          <xsd:element name='MESSAGE-DATA' minOccurs='0'>
+                            <xsd:complexType>
+                              <xsd:sequence minOccurs='1' maxOccurs='1'>
+                                <xsd:element name='BGEN-S5043' minOccurs='0'>
+                                  <xsd:complexType>
+                                    <xsd:sequence minOccurs='1' maxOccurs='1'>
+                                      <xsd:element name='BGEN-S5043-ACTION' type='xsd:string' />
+                                      <xsd:element name='BGEN-S5043-AGNTSEL' type='xsd:string' />
+                                    </xsd:sequence>
+                                  </xsd:complexType>
+                                </xsd:element>
+                                <xsd:element name='BGEN-S5035' minOccurs='0'>
+                                  <xsd:complexType>
+                                    <xsd:sequence minOccurs='1' maxOccurs='1'>
+                                      <xsd:element name='BGEN-S5035-AGCLS' type='xsd:string' />
+                                      <xsd:element name='BGEN-S5035-AGNTBR' type='xsd:string' />
+                                      <xsd:element name='BGEN-S5035-AGTYPE' type='xsd:string' />
+                                      <xsd:element name='BGEN-S5035-ARACDE' type='xsd:string' />
+                                      <xsd:element name='BGEN-S5035-BCMTAB' type='xsd:string' />
+                                      <xsd:element name='BGEN-S5035-BCTIND' type='xsd:string' />
+                                      <xsd:element name='BGEN-S5035-CLIENTIND' type='xsd:string' />
+                                      <xsd:element name='BGEN-S5035-CLNTSEL' type='xsd:string' />
+                                      <xsd:element name='BGEN-S5035-CURRCODE' type='xsd:string' />
+                                      <xsd:element name='BGEN-S5035-DDIND' type='xsd:string' />
+                                      <xsd:element name='BGEN-S5035-DTEAPP' type='xsd:string' />
+                                      <xsd:element name='FILLER' minOccurs='0'>
+                                        <xsd:complexType>
+                                          <xsd:sequence minOccurs='1' maxOccurs='1'>
+                                            <xsd:element name='BGEN-S5035-DTEAPP-CCYY' type='xsd:string' />
+                                            <xsd:element name='BGEN-S5035-DTEAPP-MM' type='xsd:string' />
+                                            <xsd:element name='BGEN-S5035-DTEAPP-DD' type='xsd:string' />
+                                          </xsd:sequence>
+                                        </xsd:complexType>
+                                      </xsd:element>
+                                      <xsd:element name='BGEN-S5035-DTETRM' type='xsd:string' />
+                                      <xsd:element name='FILLER' minOccurs='0'>
+                                        <xsd:complexType>
+                                          <xsd:sequence minOccurs='1' maxOccurs='1'>
+                                            <xsd:element name='BGEN-S5035-DTETRM-CCYY' type='xsd:string' />
+                                            <xsd:element name='BGEN-S5035-DTETRM-MM' type='xsd:string' />
+                                            <xsd:element name='BGEN-S5035-DTETRM-DD' type='xsd:string' />
+                                          </xsd:sequence>
+                                        </xsd:complexType>
+                                      </xsd:element>
+                                      <xsd:element name='BGEN-S5035-EXCAGR' type='xsd:string' />
+                                      <xsd:element name='BGEN-S5035-IND' type='xsd:string' />
+                                      <xsd:element name='BGEN-S5035-MINSTA' type='xsd:string' />
+                                      <xsd:element name='BGEN-S5035-OCMTAB' type='xsd:string' />
+                                      <xsd:element name='BGEN-S5035-PAYFRQ' type='xsd:string' />
+                                      <xsd:element name='BGEN-S5035-PAYMTH' type='xsd:string' />
+                                      <xsd:element name='BGEN-S5035-PAYSEL' type='xsd:string' />
+                                      <xsd:element name='BGEN-S5035-RCMTAB' type='xsd:string' />
+                                      <xsd:element name='BGEN-S5035-REPSEL' type='xsd:string' />
+                                      <xsd:element name='BGEN-S5035-SCMTAB' type='xsd:string' />
+                                      <xsd:element name='BGEN-S5035-TAGD' type='xsd:string' />
+                                      <xsd:element name='BGEN-S5035-TAGSUSIND' type='xsd:string' />
+                                      <xsd:element name='BGEN-S5035-TLAGLICNO' type='xsd:string' />
+                                      <xsd:element name='BGEN-S5035-TLICEXPDT' type='xsd:string' />
+                                      <xsd:element name='FILLER' minOccurs='0'>
+                                        <xsd:complexType>
+                                          <xsd:sequence minOccurs='1' maxOccurs='1'>
+                                            <xsd:element name='BGEN-S5035-TLICEXPDT-CCYY' type='xsd:string' />
+                                            <xsd:element name='BGEN-S5035-TLICEXPDT-MM' type='xsd:string' />
+                                            <xsd:element name='BGEN-S5035-TLICEXPDT-DD' type='xsd:string' />
+                                          </xsd:sequence>
+                                        </xsd:complexType>
+                                      </xsd:element>
+                                      <xsd:element name='BGEN-S5035-TSALESUNT' type='xsd:string' />
+                                      <xsd:element name='BGEN-S5035-ZRORIND' type='xsd:string' />
+                                    </xsd:sequence>
+                                  </xsd:complexType>
+                                </xsd:element>
+                                <xsd:element name='BGEN-S5037' minOccurs='0'>
+                                  <xsd:complexType>
+                                    <xsd:sequence minOccurs='1' maxOccurs='1'>
+                                      <xsd:element name='BGEN-S5037-BANKACCKEY' type='xsd:string' />
+                                      <xsd:element name='BGEN-S5037-BANKKEY' type='xsd:string' />
+                                    </xsd:sequence>
+                                  </xsd:complexType>
+                                </xsd:element>
+                              </xsd:sequence>
+                            </xsd:complexType>
+                          </xsd:element>
+                        </xsd:sequence>
+                      </xsd:complexType>
+                    </xsd:element>
+                  </xsd:sequence>
+                  <xsd:attribute name='copybook' fixed='AGTCRTI.TXT' use='required' type='xsd:string' />
+                </xsd:complexType>
+              </xsd:element>
+            </xsd:sequence>
+          </xsd:complexType>
+        </xsd:element>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+</xsd:schema>
