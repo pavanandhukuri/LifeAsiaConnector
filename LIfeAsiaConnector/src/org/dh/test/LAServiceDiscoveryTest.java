@@ -5,6 +5,8 @@ import java.util.List;
 
 import org.apache.log4j.PropertyConfigurator;
 import org.dh.LAServiceDiscovery;
+import org.dh.LATransform;
+import org.dh.metadata.MetaDataManager;
 import org.dh.modal.Service;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -28,7 +30,12 @@ public class LAServiceDiscoveryTest {
 		opList.add(op);
 		
 		obj.discovery.createServiceDefination(opList);*/
-		generateDefinationforReliance();
+		//generateDefinationforReliance();
+		//MetaDataManager.getInstance().loadAllCopybookMetada();
+		String mainframeRequest ="65192377SAVVION             ATSR      ENQ       002141EIAN0YN000000214                    210E000000ATRENQO   0008400001          65192377000000000090000000+000000000090000000+000000000100000000+000000000100000000+";
+		LATransform transform =new LATransform();
+		System.out.println("Output:"+transform.convertMainframeToBusinessObject(mainframeRequest, "getLAData"));
+		
 	}
 	
 	public static void generateDefinationforReliance() throws Exception{
@@ -36,7 +43,7 @@ public class LAServiceDiscoveryTest {
 		logger.info("Welcome to Life Asia Connector");
 		List<Service> opList =new ArrayList<Service>();
 		
-		Service op = obj.discovery.createServiceOperation("tsarEnquiry", "AGTCRTI.TXT","AGTCRTO.TXT");
+		Service op = obj.discovery.createServiceOperation("getLAData", "AUIENQI.txt","AUIENQO.txt");
 		opList.add(op);
 		
 		/*op = obj.discovery.createServiceOperation("autoUwEnquiry", "AUIENQI.TXT","AUIENQO.TXT");

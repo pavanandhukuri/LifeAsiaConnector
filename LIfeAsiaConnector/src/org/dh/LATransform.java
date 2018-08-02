@@ -1,5 +1,7 @@
 package org.dh;
 
+import java.io.IOException;
+
 import org.db.utils.XMLUtils;
 import org.dh.metadata.MetaDataManager;
 import org.dh.p400.translator.DataTranslator;
@@ -14,7 +16,7 @@ import org.w3c.dom.NodeList;
 public class LATransform {
 
 	private XMLUtils utility =XMLUtils.getInstance();
-	private MetaDataManager manager =MetaDataManager.getInstance();
+	
 	private DataTranslator translator =new DataTranslator();
 	//Logger logger =LoggerFactory.getLogger(LATransform.class);
 
@@ -65,7 +67,7 @@ public class LATransform {
 				String copybookName =copybookNode.getAttributes().getNamedItem("filename").getNodeValue();
 
 				//Get copybook xml metadata for the bo filename
-				String cbMetadata =manager.getMetadata(copybookName.substring(0, copybookName.indexOf('.')));
+				String cbMetadata =MetaDataManager.getMetadata(copybookName.substring(0, copybookName.indexOf('.')));
 				System.out.println("Metadata:" +cbMetadata);
 				//Generate the mainframe string
 				if("SESSIONI-REC".equalsIgnoreCase(copybookRootNode)){
@@ -158,8 +160,9 @@ public class LATransform {
 	 * @param mainframeResponse : Lifeasia response
 	 * @param serviceName		: Name of the service
 	 * @return					: Business Object response.
+	 * @throws IOException 
 	 */
-	public String convertMainframeToBusinessObject(String mainframeResponse,String serviceName){
+	public String convertMainframeToBusinessObject(String mainframeResponse,String serviceName) throws IOException{
 		/**
 		 * 
 		 * responseXML
@@ -188,10 +191,10 @@ public class LATransform {
 
 		String leaderContent =mainframeResponse.substring(0,_LeaderHeaderLength);
 		//Get the Metadata for the leader
-		String metadata =manager.getMetadata("LDRHDR");
+		String metadata =MetaDataManager.getMetadata("LDRHDR");
 		Element headerNode =document.createElement(additionalResponseNode+responseCount);
 		responseCount++;
-
+		
 		//Get the XML Document for the Header from the copybook
 		Node headercontent =translator.convertMainFrameToXml(leaderContent,metadata).getDocumentElement();
 		headercontent =document.importNode(headercontent, true);
@@ -209,14 +212,11 @@ public class LATransform {
 		}else{
 			headerNode =document.createElement(additionalResponseNode+responseCount);
 
-			metadata =manager.getMetadata(copyBookName);
+			metadata =MetaDataManager.getMetadata(copyBookName);
 			headercontent =translator.convertMainFrameToXml(mainframeResponse,metadata).getDocumentElement();
 			headercontent =document.importNode(headercontent, true);
 			headerNode.appendChild(headercontent);
 			root.appendChild(headerNode);
-
-
-
 		}
 
 

@@ -19,7 +19,7 @@ import net.sf.cb2xml.Cb2Xml;
 public class MetaDataManager {
 
 	private String m_strFilesDirectory; 		//directory where copybooks are stored
-	private Map<String, String> cbMetadata =new HashMap<String,String>();
+	public static Map<String, String> cbMetadata =new HashMap<String,String>();
 	private XMLUtils utils=XMLUtils.getInstance();
 
 	private static MetaDataManager manager;
@@ -62,8 +62,10 @@ public class MetaDataManager {
 		String cbName;
 		for (int i = 0; i < copybookNames.length; i++) {
 			cbName =copybookNames[i];
-			metadata =removeConditionTag(getCopyBookMetaData(cbName));
-			cbMetadata.put(cbName.substring(0, cbName.indexOf('.')),metadata);
+			if(!cbMetadata.containsKey(cbName.substring(0, cbName.indexOf('.')))){
+				metadata =removeConditionTag(getCopyBookMetaData(cbName));
+				cbMetadata.put(cbName.substring(0, cbName.indexOf('.')),metadata);
+			}
 		}
 		return cbMetadata;
 	} 
@@ -123,38 +125,38 @@ public class MetaDataManager {
 				i--;
 			}
 			if(node.hasChildNodes()){
-				
+
 				remove88(node);
 			}
-				
-			String l_strDataType =((Element)node).getAttribute("picture");
-				
-				if (l_strDataType != null) {
-					if (l_strDataType.startsWith("X")) {
-						// PICTURE type is X i.e. string type
-						((Element)node).setAttribute("type", "string");
-						((Element)node).setAttribute("spaces", "true");
-					}
 
-					else if (l_strDataType.startsWith("9")) {
-						if ((l_strDataType.indexOf(".") > 0) || (l_strDataType.indexOf("V") > 0)) {
-							// PICTURE type is Numeric and real type
-							((Element)node).setAttribute("type", "double");
-							((Element)node).setAttribute("zeros", "true");
-						} else {
-							// PICTURE type is Numeric and integer type
-							// Node.removeAttribute ( p_iItemNode, "picture" );
-							((Element)node).setAttribute("type", "int");
-							((Element)node).setAttribute("zeros", "true");
-						}
+			String l_strDataType =((Element)node).getAttribute("picture");
+
+			if (l_strDataType != null) {
+				if (l_strDataType.startsWith("X")) {
+					// PICTURE type is X i.e. string type
+					((Element)node).setAttribute("type", "string");
+					((Element)node).setAttribute("spaces", "true");
+				}
+
+				else if (l_strDataType.startsWith("9")) {
+					if ((l_strDataType.indexOf(".") > 0) || (l_strDataType.indexOf("V") > 0)) {
+						// PICTURE type is Numeric and real type
+						((Element)node).setAttribute("type", "double");
+						((Element)node).setAttribute("zeros", "true");
+					} else {
+						// PICTURE type is Numeric and integer type
+						// Node.removeAttribute ( p_iItemNode, "picture" );
+						((Element)node).setAttribute("type", "int");
+						((Element)node).setAttribute("zeros", "true");
 					}
 				}
+			}
 		}	
 
 	}
 
-	public void putMetadata(String cbName,String metadata){
-		this.cbMetadata.put(cbName, metadata);
+	public static void putMetadata(String cbName,String metadata){
+		cbMetadata.put(cbName, metadata);
 	}
 	public Map<String, String> getCopybookMetadataCollection() throws IOException{
 		if(this.cbMetadata ==null || this.cbMetadata.isEmpty()){
@@ -163,8 +165,14 @@ public class MetaDataManager {
 		return this.cbMetadata;
 	}
 
-	public String getMetadata(String cbName){
-		return this.cbMetadata.get(cbName);
+	public static String getMetadata(String cbName) throws IOException{
+		String metadata=null;
+		
+		if(!cbMetadata.containsKey(cbName)){
+			metadata =getInstance().removeConditionTag(getInstance().getCopyBookMetaData(cbName));
+			cbMetadata.put(cbName,metadata);
+		}
+		return cbMetadata.get(cbName);
 	}
 
 	/*
