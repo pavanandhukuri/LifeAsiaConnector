@@ -5,8 +5,6 @@ import java.util.List;
 
 import org.apache.log4j.PropertyConfigurator;
 import org.dh.LAServiceDiscovery;
-import org.dh.LATransform;
-import org.dh.metadata.MetaDataManager;
 import org.dh.modal.Service;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -21,20 +19,20 @@ public class LAServiceDiscoveryTest {
 
 	public static void main(String[] args) throws Exception{
 
-		/*LAServiceDiscoveryTest obj =new LAServiceDiscoveryTest();
+		LAServiceDiscoveryTest obj =new LAServiceDiscoveryTest();
 		logger.info("Welcome to Life Asia Connector");
 		List<Service> opList =new ArrayList<Service>();
-		Service op = obj.discovery.createServiceOperation("getLADetail", "TILENQI.TXT","FDVENQO.TXT");
+		Service op = obj.discovery.createServiceOperation("getLADetail", "BRECLTI.txt","BRECLTO_uat.txt");
 		opList.add(op);
-		op = obj.discovery.createServiceOperation("saveLADetail", "TILENQI.TXT","TILENQO.TXT");
+		/*op = obj.discovery.createServiceOperation("saveLADetail", "TILENQI.TXT","TILENQO.TXT");
 		opList.add(op);
-		
-		obj.discovery.createServiceDefination(opList);*/
+		*/
+		obj.discovery.createServiceDefination(opList);
 		//generateDefinationforReliance();
 		//MetaDataManager.getInstance().loadAllCopybookMetada();
-		String mainframeRequest ="65192377SAVVION             ATSR      ENQ       002141EIAN0YN000000214                    210E000000ATRENQO   0008400001          65192377000000000090000000+000000000090000000+000000000100000000+000000000100000000+";
-		LATransform transform =new LATransform();
-		System.out.println("Output:"+transform.convertMainframeToBusinessObject(mainframeRequest, "getLAData"));
+		//String mainframeRequest ="55250052CCMSUSRUATQPADEV000JTIL       ENQ       007811EIAN0N 000000781                    210E000000TILENQO   0065100001          0334845600000000082849900+T4604557475ICICI Pru iProtect Smart SP   20180601201806010000000000000000000000000000000000+00000000082849900+00000000082849900INR010000000000000000000000000082849900+INR01    00000000000000000+    IPSS      S00  00000000000000000     0000000000000000000000000000000000+         00000000000000000+                   00000000000000000     0000000000000000000000000000000000+         00000000000000000+                   00000000000000000     0000000000000000000000000000000000+         00000000000000000+                   00000000000000000     0000000000000000000000000000000000+         00000000000000000+                   ";
+		//LATransform transform =new LATransform();
+		//System.out.println("Output:"+transform.convertMainframeToBusinessObject(mainframeRequest, "getLAData"));
 		
 	}
 	

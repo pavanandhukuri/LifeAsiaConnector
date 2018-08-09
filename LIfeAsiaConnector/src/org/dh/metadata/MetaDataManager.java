@@ -169,7 +169,7 @@ public class MetaDataManager {
 		String metadata=null;
 		
 		if(!cbMetadata.containsKey(cbName)){
-			metadata =getInstance().removeConditionTag(getInstance().getCopyBookMetaData(cbName));
+			metadata =getInstance().removeConditionTag(getInstance().getCopyBookMetaData(cbName+".txt"));
 			cbMetadata.put(cbName,metadata);
 		}
 		return cbMetadata.get(cbName);
