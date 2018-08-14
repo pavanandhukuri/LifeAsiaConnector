@@ -1,0 +1,113 @@
+<xsd:schema targetNamespace='http://reliance.com/schema' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://reliance.com/schema'>
+  <xsd:element name='getLADetailReqBO'>
+    <xsd:complexType>
+      <xsd:sequence minOccurs='1' maxOccurs='1'>
+        <xsd:element name='REQMSG1'>
+          <xsd:complexType>
+            <xsd:sequence minOccurs='1' maxOccurs='1'>
+              <xsd:element name='copybook'>
+                <xsd:complexType>
+                  <xsd:sequence minOccurs='1' maxOccurs='1'>
+                    <xsd:element name='LEADER-HEADER' minOccurs='0'>
+                      <xsd:complexType>
+                        <xsd:sequence minOccurs='1' maxOccurs='1'>
+                          <xsd:element name='MSGREFNO' type='xsd:string' />
+                          <xsd:element name='USRPRF' type='xsd:string' />
+                          <xsd:element name='WKSID' type='xsd:string' />
+                          <xsd:element name='OBJID' type='xsd:string' />
+                          <xsd:element name='VRBID' type='xsd:string' />
+                          <xsd:element name='TOTMSGLNG' type='xsd:string' />
+                          <xsd:element name='OPMODE' type='xsd:string' />
+                          <xsd:element name='CMTCONTROL' type='xsd:string' />
+                          <xsd:element name='RSPMODE' type='xsd:string' />
+                          <xsd:element name='MSGINTENT' type='xsd:string' />
+                          <xsd:element name='MORE-IND' type='xsd:string' />
+                          <xsd:element name='ERRLVL' type='xsd:string' />
+                          <xsd:element name='IGNORE-DRIVER-HELD' type='xsd:string' />
+                          <xsd:element name='SUPPRESS-RCLRSC' type='xsd:string' />
+                          <xsd:element name='FILLER' type='xsd:string' />
+                        </xsd:sequence>
+                      </xsd:complexType>
+                    </xsd:element>
+                  </xsd:sequence>
+                  <xsd:attribute name='copybook' fixed='LDRHDR.txt' use='required' type='xsd:string' />
+                </xsd:complexType>
+              </xsd:element>
+            </xsd:sequence>
+          </xsd:complexType>
+        </xsd:element>
+        <xsd:element name='REQMSG2'>
+          <xsd:complexType>
+            <xsd:sequence minOccurs='1' maxOccurs='1'>
+              <xsd:element name='copybook'>
+                <xsd:complexType>
+                  <xsd:sequence minOccurs='1' maxOccurs='1'>
+                    <xsd:element name='SESSIONI-REC' minOccurs='0'>
+                      <xsd:complexType>
+                        <xsd:sequence minOccurs='1' maxOccurs='1'>
+                          <xsd:element name='MSGID' type='xsd:string' />
+                          <xsd:element name='MSGLNG' type='xsd:string' />
+                          <xsd:element name='MSGCNT' type='xsd:string' />
+                          <xsd:element name='FILLER' type='xsd:string' />
+                          <xsd:element name='SESSIONI-COMPANY' type='xsd:string' />
+                          <xsd:element name='SESSIONI-BRANCH' type='xsd:string' />
+                          <xsd:element name='SESSIONI-LANGUAGE' type='xsd:string' />
+                          <xsd:element name='SESSIONI-ACCTYR' type='xsd:string' />
+                          <xsd:element name='SESSIONI-ACCTMN' type='xsd:string' />
+                        </xsd:sequence>
+                      </xsd:complexType>
+                    </xsd:element>
+                  </xsd:sequence>
+                  <xsd:attribute name='copybook' fixed='SESSIONI.txt' use='required' type='xsd:string' />
+                </xsd:complexType>
+              </xsd:element>
+            </xsd:sequence>
+          </xsd:complexType>
+        </xsd:element>
+        <xsd:element name='REQMSG3'>
+          <xsd:complexType>
+            <xsd:sequence minOccurs='1' maxOccurs='1'>
+              <xsd:element name='copybook'>
+                <xsd:complexType>
+                  <xsd:sequence minOccurs='1' maxOccurs='1'>
+                    <xsd:element name='BRECLTI-REC' minOccurs='0'>
+                      <xsd:complexType>
+                        <xsd:sequence minOccurs='1' maxOccurs='1'>
+                          <xsd:element name='MESSAGE-HEADER' minOccurs='0'>
+                            <xsd:complexType>
+                              <xsd:sequence minOccurs='1' maxOccurs='1'>
+                                <xsd:element name='MSGID' type='xsd:string' />
+                                <xsd:element name='MSGLNG' type='xsd:string' />
+                                <xsd:element name='MSGCNT' type='xsd:string' />
+                                <xsd:element name='FILLER' type='xsd:string' />
+                              </xsd:sequence>
+                            </xsd:complexType>
+                          </xsd:element>
+                          <xsd:element name='MESSAGE-DATA' minOccurs='0'>
+                            <xsd:complexType>
+                              <xsd:sequence minOccurs='1' maxOccurs='1'>
+                                <xsd:element name='BGEN-S2480' minOccurs='0'>
+                                  <xsd:complexType>
+                                    <xsd:sequence minOccurs='1' maxOccurs='1'>
+                                      <xsd:element name='BGEN-S2480-ACTION' type='xsd:string' />
+                                      <xsd:element name='BGEN-S2480-CLTTWO' type='xsd:string' />
+                                    </xsd:sequence>
+                                  </xsd:complexType>
+                                </xsd:element>
+                              </xsd:sequence>
+                            </xsd:complexType>
+                          </xsd:element>
+                        </xsd:sequence>
+                      </xsd:complexType>
+                    </xsd:element>
+                  </xsd:sequence>
+                  <xsd:attribute name='copybook' fixed='BRECLTI.txt' use='required' type='xsd:string' />
+                </xsd:complexType>
+              </xsd:element>
+            </xsd:sequence>
+          </xsd:complexType>
+        </xsd:element>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+</xsd:schema>

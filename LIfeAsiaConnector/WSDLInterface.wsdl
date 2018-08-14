@@ -1,0 +1,34 @@
+<definitions targetNamespace='http://reliance.com/wsdl' name='WSDLInterface' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:tns='http://reliance.com/wsdl' xmlns:getladetailreqbo='http://reliance.com/schema'>
+  <types>
+    <xsd:schema targetNamespace='http://reliance.com/wsdl' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema'>
+      <xsd:import namespace='http://reliance.com/schema' schemaLocation='getLADetailReqBO.xsd' />
+      <xsd:import namespace='http://reliance.com/schema' schemaLocation='getLADetailResBO.xsd' />
+      <xsd:element name='getLADetail'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element ref='getladetailreqbo:getLADetailReqBO' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name='getLADetailResponse'>
+        <xsd:complexType>
+          <xsd:sequence minOccurs='1' maxOccurs='1'>
+            <xsd:element ref='getladetailreqbo:getLADetailResBO' />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name='getLADetail'>
+    <part name='parameters' element='tns:getLADetail' xmlns:tns='http://reliance.com/wsdl' />
+  </message>
+  <message name='getLADetailResponse'>
+    <part name='parameters' element='tns:getLADetailResponse' xmlns:tns='http://reliance.com/wsdl' />
+  </message>
+  <portType name='WSDLInterface'>
+    <operation name='getLADetail'>
+      <input message='tns:getLADetail' name='getLADetail' />
+      <output message='tns:getLADetailResponse' name='getLADetailResponse' />
+    </operation>
+  </portType>
+</definitions>

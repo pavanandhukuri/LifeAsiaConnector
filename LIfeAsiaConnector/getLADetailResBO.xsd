@@ -1,0 +1,267 @@
+<xsd:schema targetNamespace='http://reliance.com/schema' attributeFormDefault='unqualified' elementFormDefault='unqualified' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:tns='http://reliance.com/schema'>
+  <xsd:element name='getLADetailResBO'>
+    <xsd:complexType>
+      <xsd:sequence minOccurs='1' maxOccurs='1'>
+        <xsd:element name='RESMSG1'>
+          <xsd:complexType>
+            <xsd:sequence minOccurs='1' maxOccurs='1'>
+              <xsd:element name='copybook'>
+                <xsd:complexType>
+                  <xsd:sequence minOccurs='1' maxOccurs='1'>
+                    <xsd:element name='LEADER-HEADER' minOccurs='0'>
+                      <xsd:complexType>
+                        <xsd:sequence minOccurs='1' maxOccurs='1'>
+                          <xsd:element name='MSGREFNO' type='xsd:string' />
+                          <xsd:element name='USRPRF' type='xsd:string' />
+                          <xsd:element name='WKSID' type='xsd:string' />
+                          <xsd:element name='OBJID' type='xsd:string' />
+                          <xsd:element name='VRBID' type='xsd:string' />
+                          <xsd:element name='TOTMSGLNG' type='xsd:string' />
+                          <xsd:element name='OPMODE' type='xsd:string' />
+                          <xsd:element name='CMTCONTROL' type='xsd:string' />
+                          <xsd:element name='RSPMODE' type='xsd:string' />
+                          <xsd:element name='MSGINTENT' type='xsd:string' />
+                          <xsd:element name='MORE-IND' type='xsd:string' />
+                          <xsd:element name='ERRLVL' type='xsd:string' />
+                          <xsd:element name='IGNORE-DRIVER-HELD' type='xsd:string' />
+                          <xsd:element name='SUPPRESS-RCLRSC' type='xsd:string' />
+                          <xsd:element name='FILLER' type='xsd:string' />
+                        </xsd:sequence>
+                      </xsd:complexType>
+                    </xsd:element>
+                  </xsd:sequence>
+                  <xsd:attribute name='copybook' fixed='LDRHDR.txt' use='required' type='xsd:string' />
+                </xsd:complexType>
+              </xsd:element>
+            </xsd:sequence>
+          </xsd:complexType>
+        </xsd:element>
+        <xsd:element name='RESMSG2'>
+          <xsd:complexType>
+            <xsd:sequence minOccurs='1' maxOccurs='1'>
+              <xsd:element name='copybook'>
+                <xsd:complexType>
+                  <xsd:sequence minOccurs='1' maxOccurs='1'>
+                    <xsd:element name='BRECLTO-REC' minOccurs='0'>
+                      <xsd:complexType>
+                        <xsd:sequence minOccurs='1' maxOccurs='1'>
+                          <xsd:element name='MESSAGE-HEADER' minOccurs='0'>
+                            <xsd:complexType>
+                              <xsd:sequence minOccurs='1' maxOccurs='1'>
+                                <xsd:element name='MSGID' type='xsd:string' />
+                                <xsd:element name='MSGLNG' type='xsd:string' />
+                                <xsd:element name='MSGCNT' type='xsd:string' />
+                                <xsd:element name='FILLER' type='xsd:string' />
+                              </xsd:sequence>
+                            </xsd:complexType>
+                          </xsd:element>
+                          <xsd:element name='MESSAGE-DATA' minOccurs='0'>
+                            <xsd:complexType>
+                              <xsd:sequence minOccurs='1' maxOccurs='1'>
+                                <xsd:element name='BGEN-SJA20' minOccurs='0'>
+                                  <xsd:complexType>
+                                    <xsd:sequence minOccurs='1' maxOccurs='1'>
+                                      <xsd:element name='BGEN-SJA20-AGE' type='xsd:string' />
+                                      <xsd:element name='BGEN-SJA20-CCODE' type='xsd:string' />
+                                      <xsd:element name='BGEN-SJA20-CLNTNUM' type='xsd:string' />
+                                      <xsd:element name='BGEN-SJA20-CLTADDR01' type='xsd:string' />
+                                      <xsd:element name='BGEN-SJA20-CLTADDR02' type='xsd:string' />
+                                      <xsd:element name='BGEN-SJA20-CLTADDR03' type='xsd:string' />
+                                      <xsd:element name='BGEN-SJA20-CLTADDR04' type='xsd:string' />
+                                      <xsd:element name='BGEN-SJA20-CLTDOBX' type='xsd:string' />
+                                      <xsd:element name='FILLER' minOccurs='0'>
+                                        <xsd:complexType>
+                                          <xsd:sequence minOccurs='1' maxOccurs='1'>
+                                            <xsd:element name='BGEN-SJA20-CLTDOBX-CCYY' type='xsd:string' />
+                                            <xsd:element name='BGEN-SJA20-CLTDOBX-MM' type='xsd:string' />
+                                            <xsd:element name='BGEN-SJA20-CLTDOBX-DD' type='xsd:string' />
+                                          </xsd:sequence>
+                                        </xsd:complexType>
+                                      </xsd:element>
+                                      <xsd:element name='BGEN-SJA20-CLTNAME' type='xsd:string' />
+                                      <xsd:element name='BGEN-SJA20-CLTPCODE' type='xsd:string' />
+                                      <xsd:element name='BGEN-SJA20-COUNTRY' type='xsd:string' />
+                                      <xsd:element name='BGEN-SJA20-HOMEPH' type='xsd:string' />
+                                      <xsd:element name='BGEN-SJA20-RMBLPHONE' type='xsd:string' />
+                                      <xsd:element name='BGEN-SJA20-SOE' type='xsd:string' />
+                                      <xsd:element name='BGEN-SJA20-STDHOME' type='xsd:string' />
+                                      <xsd:element name='BGEN-SJA20-VIP' type='xsd:string' />
+                                      <xsd:element name='BGEN-SJA20-SFL' maxOccurs='unbounded'>
+                                        <xsd:complexType>
+                                          <xsd:sequence minOccurs='1' maxOccurs='1'>
+                                            <xsd:element name='BGEN-SJA20-ACCUAMT' type='xsd:string' />
+                                            <xsd:element name='BGEN-SJA20-ASTCCL' type='xsd:string' />
+                                            <xsd:element name='BGEN-SJA20-AGMVTY' type='xsd:string' />
+                                            <xsd:element name='BGEN-SJA20-AGNTNUM' type='xsd:string' />
+                                            <xsd:element name='BGEN-SJA20-ALLIND' type='xsd:string' />
+                                            <xsd:element name='BGEN-SJA20-ANNPREM' type='xsd:string' />
+                                            <xsd:element name='BGEN-SJA20-ASSPAID' type='xsd:string' />
+                                            <xsd:element name='BGEN-SJA20-BNFYING' type='xsd:string' />
+                                            <xsd:element name='BGEN-SJA20-BNYIND' type='xsd:string' />
+                                            <xsd:element name='BGEN-SJA20-CHDRNUM' type='xsd:string' />
+                                            <xsd:element name='BGEN-SJA20-CHDRTYPE' type='xsd:string' />
+                                            <xsd:element name='BGEN-SJA20-COWNCOY' type='xsd:string' />
+                                            <xsd:element name='BGEN-SJA20-DSUMINS' type='xsd:string' />
+                                            <xsd:element name='BGEN-SJA20-HINOUTCM01' type='xsd:string' />
+                                            <xsd:element name='BGEN-SJA20-HINOUTCM02' type='xsd:string' />
+                                            <xsd:element name='BGEN-SJA20-HPRRCVDT' type='xsd:string' />
+                                            <xsd:element name='FILLER' minOccurs='0'>
+                                              <xsd:complexType>
+                                                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                                                  <xsd:element name='BGEN-SJA20-HPRRCVDT-CCYY' type='xsd:string' />
+                                                  <xsd:element name='BGEN-SJA20-HPRRCVDT-MM' type='xsd:string' />
+                                                  <xsd:element name='BGEN-SJA20-HPRRCVDT-DD' type='xsd:string' />
+                                                </xsd:sequence>
+                                              </xsd:complexType>
+                                            </xsd:element>
+                                            <xsd:element name='BGEN-SJA20-IND' type='xsd:string' />
+                                            <xsd:element name='BGEN-SJA20-INDIC' type='xsd:string' />
+                                            <xsd:element name='BGEN-SJA20-JETDCS' type='xsd:string' />
+                                            <xsd:element name='BGEN-SJA20-JLPRES' type='xsd:string' />
+                                            <xsd:element name='BGEN-SJA20-PAYOR' type='xsd:string' />
+                                            <xsd:element name='BGEN-SJA20-PSTATCODE' type='xsd:string' />
+                                            <xsd:element name='BGEN-SJA20-PTDATE' type='xsd:string' />
+                                            <xsd:element name='FILLER' minOccurs='0'>
+                                              <xsd:complexType>
+                                                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                                                  <xsd:element name='BGEN-SJA20-PTDATE-CCYY' type='xsd:string' />
+                                                  <xsd:element name='BGEN-SJA20-PTDATE-MM' type='xsd:string' />
+                                                  <xsd:element name='BGEN-SJA20-PTDATE-DD' type='xsd:string' />
+                                                </xsd:sequence>
+                                              </xsd:complexType>
+                                            </xsd:element>
+                                            <xsd:element name='BGEN-SJA20-SRCEBUS' type='xsd:string' />
+                                            <xsd:element name='BGEN-SJA20-STATCDE' type='xsd:string' />
+                                            <xsd:element name='BGEN-COVRDTA' minOccurs='0'>
+                                              <xsd:complexType>
+                                                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                                                  <xsd:element name='BGEN-CRTABLE' type='xsd:string' />
+                                                  <xsd:element name='BGEN-SUMINS' type='xsd:string' />
+                                                  <xsd:element name='BGEN-RCESTRM' type='xsd:string' />
+                                                  <xsd:element name='BGEN-MORTCLS' type='xsd:string' />
+                                                  <xsd:element name='BGEN-PREMSTATUS' type='xsd:string' />
+                                                  <xsd:element name='BGEN-INST-PREM' type='xsd:string' />
+                                                  <xsd:element name='BGEN-PCESTRM' type='xsd:string' />
+                                                </xsd:sequence>
+                                              </xsd:complexType>
+                                            </xsd:element>
+                                            <xsd:element name='BGEN-COVRDTA' minOccurs='0'>
+                                              <xsd:complexType>
+                                                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                                                  <xsd:element name='BGEN-CRTABLE' type='xsd:string' />
+                                                  <xsd:element name='BGEN-SUMINS' type='xsd:string' />
+                                                  <xsd:element name='BGEN-RCESTRM' type='xsd:string' />
+                                                  <xsd:element name='BGEN-MORTCLS' type='xsd:string' />
+                                                  <xsd:element name='BGEN-PREMSTATUS' type='xsd:string' />
+                                                  <xsd:element name='BGEN-INST-PREM' type='xsd:string' />
+                                                  <xsd:element name='BGEN-PCESTRM' type='xsd:string' />
+                                                </xsd:sequence>
+                                              </xsd:complexType>
+                                            </xsd:element>
+                                            <xsd:element name='BGEN-COVRDTA' minOccurs='0'>
+                                              <xsd:complexType>
+                                                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                                                  <xsd:element name='BGEN-CRTABLE' type='xsd:string' />
+                                                  <xsd:element name='BGEN-SUMINS' type='xsd:string' />
+                                                  <xsd:element name='BGEN-RCESTRM' type='xsd:string' />
+                                                  <xsd:element name='BGEN-MORTCLS' type='xsd:string' />
+                                                  <xsd:element name='BGEN-PREMSTATUS' type='xsd:string' />
+                                                  <xsd:element name='BGEN-INST-PREM' type='xsd:string' />
+                                                  <xsd:element name='BGEN-PCESTRM' type='xsd:string' />
+                                                </xsd:sequence>
+                                              </xsd:complexType>
+                                            </xsd:element>
+                                            <xsd:element name='BGEN-COVRDTA' minOccurs='0'>
+                                              <xsd:complexType>
+                                                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                                                  <xsd:element name='BGEN-CRTABLE' type='xsd:string' />
+                                                  <xsd:element name='BGEN-SUMINS' type='xsd:string' />
+                                                  <xsd:element name='BGEN-RCESTRM' type='xsd:string' />
+                                                  <xsd:element name='BGEN-MORTCLS' type='xsd:string' />
+                                                  <xsd:element name='BGEN-PREMSTATUS' type='xsd:string' />
+                                                  <xsd:element name='BGEN-INST-PREM' type='xsd:string' />
+                                                  <xsd:element name='BGEN-PCESTRM' type='xsd:string' />
+                                                </xsd:sequence>
+                                              </xsd:complexType>
+                                            </xsd:element>
+                                            <xsd:element name='BGEN-COVRDTA' minOccurs='0'>
+                                              <xsd:complexType>
+                                                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                                                  <xsd:element name='BGEN-CRTABLE' type='xsd:string' />
+                                                  <xsd:element name='BGEN-SUMINS' type='xsd:string' />
+                                                  <xsd:element name='BGEN-RCESTRM' type='xsd:string' />
+                                                  <xsd:element name='BGEN-MORTCLS' type='xsd:string' />
+                                                  <xsd:element name='BGEN-PREMSTATUS' type='xsd:string' />
+                                                  <xsd:element name='BGEN-INST-PREM' type='xsd:string' />
+                                                  <xsd:element name='BGEN-PCESTRM' type='xsd:string' />
+                                                </xsd:sequence>
+                                              </xsd:complexType>
+                                            </xsd:element>
+                                            <xsd:element name='BGEN-COVRDTA' minOccurs='0'>
+                                              <xsd:complexType>
+                                                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                                                  <xsd:element name='BGEN-CRTABLE' type='xsd:string' />
+                                                  <xsd:element name='BGEN-SUMINS' type='xsd:string' />
+                                                  <xsd:element name='BGEN-RCESTRM' type='xsd:string' />
+                                                  <xsd:element name='BGEN-MORTCLS' type='xsd:string' />
+                                                  <xsd:element name='BGEN-PREMSTATUS' type='xsd:string' />
+                                                  <xsd:element name='BGEN-INST-PREM' type='xsd:string' />
+                                                  <xsd:element name='BGEN-PCESTRM' type='xsd:string' />
+                                                </xsd:sequence>
+                                              </xsd:complexType>
+                                            </xsd:element>
+                                            <xsd:element name='BGEN-COVRDTA' minOccurs='0'>
+                                              <xsd:complexType>
+                                                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                                                  <xsd:element name='BGEN-CRTABLE' type='xsd:string' />
+                                                  <xsd:element name='BGEN-SUMINS' type='xsd:string' />
+                                                  <xsd:element name='BGEN-RCESTRM' type='xsd:string' />
+                                                  <xsd:element name='BGEN-MORTCLS' type='xsd:string' />
+                                                  <xsd:element name='BGEN-PREMSTATUS' type='xsd:string' />
+                                                  <xsd:element name='BGEN-INST-PREM' type='xsd:string' />
+                                                  <xsd:element name='BGEN-PCESTRM' type='xsd:string' />
+                                                </xsd:sequence>
+                                              </xsd:complexType>
+                                            </xsd:element>
+                                            <xsd:element name='BGEN-COVRDTA' minOccurs='0'>
+                                              <xsd:complexType>
+                                                <xsd:sequence minOccurs='1' maxOccurs='1'>
+                                                  <xsd:element name='BGEN-CRTABLE' type='xsd:string' />
+                                                  <xsd:element name='BGEN-SUMINS' type='xsd:string' />
+                                                  <xsd:element name='BGEN-RCESTRM' type='xsd:string' />
+                                                  <xsd:element name='BGEN-MORTCLS' type='xsd:string' />
+                                                  <xsd:element name='BGEN-PREMSTATUS' type='xsd:string' />
+                                                  <xsd:element name='BGEN-INST-PREM' type='xsd:string' />
+                                                  <xsd:element name='BGEN-PCESTRM' type='xsd:string' />
+                                                </xsd:sequence>
+                                              </xsd:complexType>
+                                            </xsd:element>
+                                            <xsd:element name='BGEN-SJA20-TTMPRCNO' type='xsd:string' />
+                                            <xsd:element name='BGEN-SJA20-HOISSDTE' type='xsd:string' />
+                                            <xsd:element name='BGEN-SJA20-BILLFREQ' type='xsd:string' />
+                                            <xsd:element name='BGEN-MOP' type='xsd:string' />
+                                            <xsd:element name='BGEN-STICEL' type='xsd:string' />
+                                            <xsd:element name='BGEN-PREMSUSP' type='xsd:string' />
+                                          </xsd:sequence>
+                                        </xsd:complexType>
+                                      </xsd:element>
+                                    </xsd:sequence>
+                                  </xsd:complexType>
+                                </xsd:element>
+                              </xsd:sequence>
+                            </xsd:complexType>
+                          </xsd:element>
+                        </xsd:sequence>
+                      </xsd:complexType>
+                    </xsd:element>
+                  </xsd:sequence>
+                  <xsd:attribute name='copybook' fixed='BRECLTO_uat.txt' use='required' type='xsd:string' />
+                </xsd:complexType>
+              </xsd:element>
+            </xsd:sequence>
+          </xsd:complexType>
+        </xsd:element>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+</xsd:schema>

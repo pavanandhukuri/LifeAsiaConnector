@@ -72,7 +72,6 @@ public class XSDGeneration {
 		System.out.println("Get schema file content for bo: "+bo.getBoName());
 		Schema schema =new Schema(schemaNamespace);
 
-
 		Element rootElement =schema.newElement(bo.getBoName());	
 		Sequence cbElement =rootElement.newComplexType().newSequence();
 		
@@ -139,8 +138,9 @@ public class XSDGeneration {
 		Sequence seq =cmpxElement.newSequence();
 		
 		for(Item item:metadata){
+			Element childElement=null;
 			if(item.getChild() !=null){
-				Element childElement=seq.newElement(item.getName());
+				childElement=seq.newElement(item.getName());
 				if(item.getOccurs()>1){
 					childElement.setMaxOccurs("unbounded");
 				}
@@ -152,11 +152,17 @@ public class XSDGeneration {
 			}else{
 				
 				if("double".equalsIgnoreCase(item.getType()) || "int".equalsIgnoreCase(item.getType())){
-					seq.newElement(item.getName()).
-					setType(Schema.INT);
+					childElement =seq.newElement(item.getName());
+					childElement.setType(Schema.INT);
+					if(item.getOccurs() >1){
+						childElement.setMaxOccurs("unbounded");
+					}
 				}else{
-					seq.newElement(item.getName()).
-					setType(Schema.STRING);
+					childElement =seq.newElement(item.getName());
+					childElement.setType(Schema.STRING);
+					if(item.getOccurs()>1){
+						childElement.setMaxOccurs("unbounded");
+					}
 				}				
 			}
 		}

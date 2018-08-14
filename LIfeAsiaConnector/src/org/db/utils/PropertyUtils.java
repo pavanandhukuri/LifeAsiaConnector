@@ -3,6 +3,8 @@ package org.db.utils;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.util.Properties;
 
 public class PropertyUtils {
@@ -11,11 +13,14 @@ public class PropertyUtils {
 	
 	static{
 		
-		FileReader reader;
+		InputStream stream;
 		try {
-			reader = new FileReader("application.properties");
+			//reader = new FileReader(new InputStreamReader(PropertyUtils.class.getResourceAsStream("application.properties")));
+			//reader =new FileReader(file)
+			stream = PropertyUtils.class.getResourceAsStream("application.properties");
 			prop =new Properties();
-			prop.load(reader);
+			prop.load(stream);
+			
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			throw new RuntimeException("LAConnector Error: application property file is missing",e);			

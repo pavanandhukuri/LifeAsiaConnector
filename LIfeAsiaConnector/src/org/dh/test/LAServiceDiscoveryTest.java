@@ -14,7 +14,8 @@ public class LAServiceDiscoveryTest {
 	public LAServiceDiscovery discovery=new LAServiceDiscovery(); 
 	static Logger logger =LoggerFactory.getLogger(LAServiceDiscovery.class);
 	static{
-		PropertyConfigurator.configure("log4j.properties");
+		//PropertyConfigurator.configure("log4j.properties");
+		PropertyConfigurator.configure(LAServiceDiscoveryTest.class.getResourceAsStream("log4j.properties"));
 	}
 
 	public static void main(String[] args) throws Exception{
@@ -22,7 +23,7 @@ public class LAServiceDiscoveryTest {
 		LAServiceDiscoveryTest obj =new LAServiceDiscoveryTest();
 		logger.info("Welcome to Life Asia Connector");
 		List<Service> opList =new ArrayList<Service>();
-		Service op = obj.discovery.createServiceOperation("getLADetail", "BRECLTI.txt","BRECLTO_uat.txt");
+		Service op = obj.discovery.createServiceOperation("getAquaDetail", "AUIENQI.txt","AUIENQO.txt");
 		opList.add(op);
 		/*op = obj.discovery.createServiceOperation("saveLADetail", "TILENQI.TXT","TILENQO.TXT");
 		opList.add(op);

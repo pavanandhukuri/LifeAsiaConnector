@@ -2,9 +2,13 @@ package org.dh;
 
 import java.io.IOException;
 
+import org.apache.log4j.PropertyConfigurator;
+import org.db.utils.PropertyUtils;
 import org.db.utils.XMLUtils;
 import org.dh.metadata.MetaDataManager;
 import org.dh.p400.translator.DataTranslator;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
@@ -15,6 +19,13 @@ import org.w3c.dom.NodeList;
 
 public class LATransform {
 
+	static Logger logger =LoggerFactory.getLogger(LAServiceDiscovery.class);
+	static{
+		
+		//PropertyConfigurator.configure("log4j.properties");
+		PropertyConfigurator.configure(LATransform.class.getResourceAsStream("log4j.properties"));
+		
+	}
 	private XMLUtils utility =XMLUtils.getInstance();
 	
 	private DataTranslator translator =new DataTranslator();
@@ -55,8 +66,13 @@ public class LATransform {
 		 * 	
 		 * return leader +session +payload
 		 */
+		
+		logger.info("###Transform xml request to mainframe request");
+		logger.info("Service Name :{}, \n Data :{}",serviceName,strRequestXML);
 		Document document =utility.stringToDom(strRequestXML);
+		logger.info("Document Object :{}",document);
 		NodeList copybookList =document.getDocumentElement().getElementsByTagName("copybook");
+		
 		Node copybookNode;
 		try{
 
